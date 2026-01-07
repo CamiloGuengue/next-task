@@ -48,16 +48,23 @@ btnCrear.addEventListener("click", () => {
 });
 
 
-btnFiltrar.addEventListener("click", () => {
-  const valor = filtro.value.trim();
+btnFiltrar.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  const valor = String(filtro.value).trim();
   const cuadrados = contenedor.querySelectorAll(".cuadrado");
+  console.log("valor:", valor);
+  console.log("nums:", [...cuadrados].map(c => c.querySelector(".cuad-id")?.textContent));
+
 
   cuadrados.forEach(c => {
-    const id = c.dataset.id;
-    const ocultar = (valor !== "" && id !== valor);
-    c.classList.toggle("oculto", ocultar);
+    const num = c.querySelector(".cuad-id")?.textContent?.trim() || "";
+    const ocultar = (valor !== "" && num !== valor);
+    c.classList.toggle("oculto", ocultar); // [web:54]
   });
 });
+
+
 
 btnMostrarTodos.addEventListener("click", () => {
   contenedor.querySelectorAll(".cuadrado").forEach(c => c.classList.remove("oculto"));

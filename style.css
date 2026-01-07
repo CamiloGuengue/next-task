@@ -20,7 +20,10 @@
   font-size: 24px;
   user-select: none;
 }
-.oculto { display: none; }
+.oculto {
+  display: none !important;
+}
+
 .cuadrado {
   position: relative;
   /* tus estilos: width/height/background/etc */

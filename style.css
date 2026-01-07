@@ -1,0 +1,24 @@
+#contenedor{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 12px;
+  border: 2px solid #ccc;
+  min-height: 150px;
+}
+
+.cuadrado{
+  width: 100px;
+  height: 100px;
+  background: #dc3545;
+
+  display: grid;
+  place-items: center;
+
+  color: white;
+  font-weight: 700;
+  font-size: 24px;
+  user-select: none;
+}
+
+

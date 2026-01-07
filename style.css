@@ -20,5 +20,16 @@
   font-size: 24px;
   user-select: none;
 }
+.oculto { display: none; }
+.cuadrado {
+  position: relative;
+  /* tus estilos: width/height/background/etc */
+}
+
+.cuadrado .chk {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+}
 
 

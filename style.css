@@ -31,5 +31,31 @@
   top: 6px;
   right: 6px;
 }
+.eliminado {
+  background: #bdbdbd; /* o el gris que quieras */
+  opacity: 0.8;
+}
+/* Aplica el mismo look a los 2 contenedores */
+#contenedor,
+#contenedorEliminados {
+  width: 100%;
+  min-height: 220px;      /* ajusta al alto de tu contenedor de arriba */ /* [web:209] */
+  border: 2px solid #333;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.cuadrado{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cuad-fecha{
+  font-size: 12px;
+  opacity: 0.8;
+}
+
 
 

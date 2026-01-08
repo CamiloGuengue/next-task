@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page - TaskFlow</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    
+    <div class="container">
+        <div class="row justify-content-center align-items-center min-vh-100">
+            <div class="col-md-8 col-lg-6">
+                
+                <!-- SUCCESS PAGE -->
+                <div class="card shadow">
+                    <div class="card-body p-5 text-center">
+                        
+                        <!-- Welcome message -->
+                        <div class="mb-4">
+                            <h1 class="display-4 fw-bold text-success mb-3">✅ LOGIN EXITOSO!</h1>
+                            <h2 class="fs-3">¡Funciona perfectamente!</h2>
+                        </div>
+
+                        <!-- User info -->
+                        <div id="user-info" class="mb-4 p-4 bg-white rounded shadow-sm">
+                            <h4>Usuario actual:</h4>
+                            <pre id="user-data" class="text-start small bg-light p-3 rounded">Cargando...</pre>
+                        </div>
+
+                        <!-- All users list -->
+                        <div class="mb-4">
+                            <h4>Todos los usuarios registrados:</h4>
+                            <div id="all-users" class="text-start bg-light p-3 rounded small">Cargando...</div>
+                        </div>
+
+                        <!-- Stats -->
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-4">
+                                <div class="card bg-primary text-white">
+                                    <div class="card-body text-center">
+                                        <h3 id="total-users">0</h3>
+                                        <p>Total usuarios</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card bg-success text-white">
+                                    <div class="card-body text-center">
+                                        <h3 id="session-status">Sí</h3>
+                                        <p>Sesión activa</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card bg-info text-white">
+                                    <div class="card-body text-center">
+                                        <h3 id="storage-size">0</h3>
+                                        <p>KB usados</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action buttons -->
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-success btn-lg mb-2" onclick="showAllData()">Ver datos completos</button>
+                            <button class="btn btn-warning btn-lg mb-2" onclick="logout()">Log Out</button>
+                            <button class="btn btn-secondary btn-lg" onclick="clearAllData()">Borrar todo</button>
+                            <a href="auth.html" class="btn btn-outline-primary btn-lg">Volver a Login</a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load data when page starts
+        window.addEventListener('load', loadUserData);
+
+        function loadUserData() {
+            // Get current logged user
+            const currentUser = JSON.parse(localStorage.getItem('taskflow-current-user') || 'null');
+            const allUsers = JSON.parse(localStorage.getItem('taskflow-users') || '[]');
+
+            // Check if logged in
+            if (!currentUser) {
+                document.body.innerHTML = `
+                    <div class="container mt-5">
+                        <div class="alert alert-danger text-center">
+                            <h2>❌ No estás logueado</h2>
+                            <p>Vuelve a <a href="auth.html">Login</a></p>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+
+            // Show current user
+            document.getElementById('user-data').textContent = JSON.stringify(currentUser, null, 2);
+
+            // Show all users
+            const userHtml = allUsers.map(user => 
+                `<div class="user-item p-2 border-bottom">
+                    <strong>${user.name}</strong> 
+                    <span class="text-muted">${user.email}</span>
+                </div>`
+            ).join('') || '<p class="text-muted">No users registered</p>';
+            document.getElementById('all-users').innerHTML = userHtml;
+
+            // Update stats
+            document.getElementById('total-users').textContent = allUsers.length;
+            document.getElementById('session-status').textContent = 'Sí ✅';
+            
+            // Storage size
+            const storageSize = JSON.stringify(allUsers).length / 1024;
+            document.getElementById('storage-size').textContent = storageSize.toFixed(1);
+
+            console.table(allUsers);
+        }
+
+        // Show detailed data
+        function showAllData() {
+            const allUsers = JSON.parse(localStorage.getItem('taskflow-users') || '[]');
+            const currentUser = JSON.parse(localStorage.getItem('taskflow-current-user') || 'null');
+            
+            const data = {
+                currentUser: currentUser,
+                allUsers: allUsers,
+                total: allUsers.length,
+                storageUsed: JSON.stringify(allUsers).length + ' bytes'
+            };
+            
+            console.table(data);
+            alert('Revisa Console (F12) para datos completos');
+        }
+
+        // Logout function
+        function logout() {
+            localStorage.removeItem('taskflow-current-user');
+            alert('Logged out! Redirecting...');
+            window.location.href = 'auth.html';
+        }
+
+        // Clear all data (for testing)
+        function clearAllData() {
+            if (confirm('¿Borrar todos los usuarios?')) {
+                localStorage.removeItem('taskflow-users');
+                localStorage.removeItem('taskflow-current-user');
+                alert('Todos los datos borrados');
+                window.location.reload();
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,5 +1,5 @@
 
--document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
    
 
     const splashScreen = document.getElementById('splashScreen');
@@ -19,9 +19,9 @@
         splashScreen.classList.add('slide-up');
         
         
-        splash-Screen.addEventListener('transitionend', function() {
+        splashScreen.addEventListener('transitionend', function() {
             
-            window.location.href = 'index.html';
+            window.location.href = './index.html';
         }, { once: true }); 
     });
 });

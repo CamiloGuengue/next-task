@@ -41,9 +41,6 @@ const btnMostrarTodos = document.getElementById("btnMostrarTodos");
 const btnEliminarSeleccionados = document.getElementById("btnEliminarSeleccionados");
 const btnEditarSeleccionados = document.getElementById("btnEditarSeleccionados");
 
-function random1a10() {
-  return Math.floor(Math.random() * 10) + 1;
-}
 
 btnCrear.addEventListener("click", () => {
   const data = validar();

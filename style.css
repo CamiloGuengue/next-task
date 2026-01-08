@@ -66,9 +66,8 @@ body {
     animation: pulse 2s infinite;
 }
 
-.card1 video{
-    margin: 20px;
-    width: 1px;;
+.row .card0{
+    width: 10px;
 }
 
 @keyframes fadeInScale {

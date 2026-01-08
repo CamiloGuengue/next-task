@@ -1,3 +1,34 @@
+function validar() {
+  const tituloDeLaTarea = document.getElementById("titulo");
+  const descripcionTarea = document.getElementById("Descripcion");
+  const TituloError = document.getElementById("error");
+  const DescripcionError = document.getElementById("error1");
+  const selector = document.getElementById("selector");
+
+  const titulo = tituloDeLaTarea.value.trim();
+  const descripcion = descripcionTarea.value.trim();
+  const prioridad = selector.value.trim();
+
+  TituloError.textContent = "";
+  DescripcionError.textContent = "";
+
+  let ok = true;
+
+  if (titulo === "") {
+    TituloError.textContent = "el campo no puede estar vacio";
+    ok = false;
+  }
+  if (descripcion === "") {
+    DescripcionError.textContent = "el campo no puede estar vacio";
+    ok = false;
+  }
+
+  if (!ok) return null;
+
+  return { titulo, descripcion, prioridad };
+}
+
+
 const contenedor = document.getElementById("contenedor");
 const contenedorEliminados = document.getElementById("contenedorEliminados");
 
@@ -15,37 +46,54 @@ function random1a10() {
 }
 
 btnCrear.addEventListener("click", () => {
+  const data = validar();
+  if (!data) return;
+
   const cuadrado = document.createElement("div");
   cuadrado.classList.add("cuadrado");
 
-  const n = random1a10();
-  cuadrado.dataset.id = String(n);
+  // ID (usa el título como id lógico, o cámbialo si quieres un número)
+  cuadrado.dataset.id = data.titulo;
+  cuadrado.dataset.descripcion = data.descripcion;
+  cuadrado.dataset.prioridad = data.prioridad;
 
-  // Número (arriba)
+  // Título visible
   const labelNum = document.createElement("span");
   labelNum.classList.add("cuad-id");
-  labelNum.textContent = n;
+  labelNum.textContent = data.titulo;
 
-  // Fecha (abajo): hoy + 1..5 días aleatorio
-  const diasExtra = Math.floor(Math.random() * 5) + 1; // 1..5 [web:254]
-  const fecha = new Date(); // hoy [web:246]
-  fecha.setDate(fecha.getDate() + diasExtra); // suma días [web:249]
+  // Descripción visible
+  const labelDesc = document.createElement("span");
+  labelDesc.classList.add("cuad-desc");
+  labelDesc.textContent = data.descripcion;
+
+  //prioridad visible
+  const labelPrioridad = document.createElement("span");
+  labelPrioridad.classList.add("cuad-prioridad");
+  labelPrioridad.textContent = data.prioridad;
+
+
+  
+
+  // Fecha (como ya la tenías)
+  const diasExtra = Math.floor(Math.random() * 5) + 1;
+  const fecha = new Date();
+  fecha.setDate(fecha.getDate() + diasExtra);
 
   const labelFecha = document.createElement("span");
   labelFecha.classList.add("cuad-fecha");
-  // Formato simple (puedes cambiarlo): YYYY-MM-DD
   labelFecha.textContent = fecha.toISOString().slice(0, 10);
-
-  // Guardar fecha también en dataset por si luego la necesitas
   cuadrado.dataset.fecha = labelFecha.textContent;
 
   const chk = document.createElement("input");
   chk.type = "checkbox";
   chk.classList.add("chk");
 
-  cuadrado.append(labelNum, chk, labelFecha);
+  cuadrado.append(labelNum, chk, labelDesc, labelFecha,labelPrioridad);
   contenedor.appendChild(cuadrado);
 });
+
+
 
 
 btnFiltrar.addEventListener("click", (e) => {
@@ -53,8 +101,6 @@ btnFiltrar.addEventListener("click", (e) => {
 
   const valor = String(filtro.value).trim();
   const cuadrados = contenedor.querySelectorAll(".cuadrado");
-  console.log("valor:", valor);
-  console.log("nums:", [...cuadrados].map(c => c.querySelector(".cuad-id")?.textContent));
 
 
   cuadrados.forEach(c => {

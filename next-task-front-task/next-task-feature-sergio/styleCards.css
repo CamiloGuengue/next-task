@@ -338,7 +338,21 @@ body {
             margin-top: 7.5px;
             color: rgb(133, 133, 133);
         }
-    
+.tarea-card { position: relative; }
+
+.tarea-card .chk{
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 5;
+}
+.oculto { display: none; }
+
+.eliminado{
+  background: #161616 !important;
+  color: #ffffff !important;
+  opacity: .85;
+}
 
 
 

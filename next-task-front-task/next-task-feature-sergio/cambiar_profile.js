@@ -85,6 +85,15 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* GUARDAR IMAGEN */
+const imgHeader = document.getElementById("imgHeader");
+
+// Al cargar la página: si hay foto guardada, ponla en ambos
+const guardada = localStorage.getItem("fotoPerfil");
+if (guardada) {
+  preview.src = guardada;
+  if (imgHeader) imgHeader.src = guardada;
+}
+
 inputFoto.addEventListener("change", () => {
   const file = inputFoto.files[0];
   if (!file) return;
@@ -92,10 +101,11 @@ inputFoto.addEventListener("change", () => {
   const reader = new FileReader();
 
   reader.onload = () => {
-    const base64 = reader.result;
+    const base64 = reader.result; // DataURL [web:97]
     preview.src = base64;
+    if (imgHeader) imgHeader.src = base64;
     localStorage.setItem("fotoPerfil", base64);
   };
 
-  reader.readAsDataURL(file);
+  reader.readAsDataURL(file); // convierte archivo a DataURL [web:97]
 });

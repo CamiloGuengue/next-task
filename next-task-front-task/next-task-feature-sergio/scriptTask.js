@@ -39,40 +39,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ====== crear tarea ======
   function crearTarea(data) {
-    const card = document.createElement("div");
-    card.classList.add("task-card", "tarea-card");
+  const card = document.createElement("div");
+  card.classList.add("task-card", "tarea-card");
 
-    const prio = String(data.prioridad).toLowerCase();
-    card.dataset.prioridad = prio;
+  const prio = String(data.prioridad).toLowerCase();
+  card.dataset.prioridad = prio;
 
-    const diasExtra = Math.floor(Math.random() * 5) + 1;
-    const fecha = new Date();
-    fecha.setDate(fecha.getDate() + diasExtra);
-    const fechaTxt = fecha.toISOString().slice(0, 10);
-    card.dataset.fecha = fechaTxt;
+  const diasExtra = Math.floor(Math.random() * 5) + 1;
+  const fecha = new Date();
+  fecha.setDate(fecha.getDate() + diasExtra);
+  const fechaTxt = fecha.toISOString().slice(0, 10);
+  card.dataset.fecha = fechaTxt;
 
-    if (prio === "alta") card.classList.add("prio-alta");
-    else if (prio === "media") card.classList.add("prio-media");
-    else if (prio === "baja") card.classList.add("prio-baja");
+  if (prio === "alta") card.classList.add("prio-alta");
+  else if (prio === "media") card.classList.add("prio-media");
+  else if (prio === "baja") card.classList.add("prio-baja");
 
-    card.innerHTML = `
-      <div class="d-flex justify-content-between align-items-start mb-2">
-        <span class="task-category" style="color: #9f94c9;">My Task</span>
-        <span class="card-menu">⋯</span>
-      </div>
-      <h3 class="task-title">${data.titulo}</h3>
-      <p class="task-description">${data.descripcion}</p>
-      <div class="task-date">
-        <i class="bi bi-calendar3"></i>
-        ${fechaTxt}
-      </div>
-      <div class="Alta">
-        <p>Prioridad: ${data.prioridad}</p>
-      </div>
-    `;
+  // (Opcional) id único para el checkbox y su label
+  const checkId = `chk-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
 
-    return card;
-  }
+  card.innerHTML = `
+    <input type="checkbox" class="chk" id="${checkId}" />
+
+    <div class="d-flex justify-content-between align-items-start mb-2">
+      <span class="task-category" style="color: #9f94c9;">My Task</span>
+      <span class="card-menu">⋯</span>
+    </div>
+
+    <h3 class="task-title">${data.titulo}</h3>
+    <p class="task-description">${data.descripcion}</p>
+
+    <div class="task-date">
+      <i class="bi bi-calendar3"></i>
+      ${fechaTxt}
+    </div>
+
+    <div class="Alta">
+      <p>Prioridad: ${data.prioridad}</p>
+    </div>
+  `;
+
+  return card;
+}
+
 
   // ✅ IMPORTANTE: elimina este bloque que tenías (creabas "tarea" pero no lo usabas)
   // const tarea = document.createElement("div") ...
@@ -164,6 +173,22 @@ btnAbrirPerfil?.addEventListener("click", abrirPerfil);
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") cerrarPerfil();
 });
+const btnEliminar = document.getElementById("btnEliminar"); // tu id real
+
+btnEliminar?.addEventListener("click", () => {
+  const marcados = contenedor.querySelectorAll(".chk:checked"); // solo checked [web:30]
+
+  marcados.forEach(chk => {
+    const card = chk.closest(".tarea-card");
+    if (!card) return;
+
+    card.classList.add("eliminado"); // gris [web:70]
+    card.classList.add("oculto");    // oculto [web:70]
+
+    chk.checked = false; // opcional: lo desmarca
+  });
+});
+
 
 
 

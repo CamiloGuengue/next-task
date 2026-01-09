@@ -1,0 +1,362 @@
+body {
+    background: #95cde7;
+    font-family: system-ui, sans-serif;
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    padding: 25px 25px;
+    border-radius: 30px;
+    height: 120px;
+    margin: 20px;
+
+}
+
+
+
+.the-serch {
+    flex: 1;
+    display: flex;
+    justify-content: end;
+    margin-right: 50px;
+}
+.search-1{
+    width: 35%;
+    border-radius: 30px;
+    padding: 15px 30px 15px 30px;
+    border: 1px solid rgba(128, 128, 128, 0.247);
+
+}
+
+
+.iconos {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.icon-btn {
+    background: #fffefe;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 10px;
+    cursor: pointer;
+    font-size: 29px;
+
+
+}
+
+
+
+
+
+.perfil {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}   
+
+
+.perfil img {
+    width: 50px;
+    height: 50px;
+    border-radius: 30%;
+}
+
+
+.nombre-perfil {
+    font-size: 23px;
+    font-weight: 500;
+}
+
+
+
+.container-fluid {
+  display: flex;
+  align-items: stretch;
+  min-height: 100vh;
+}
+
+
+
+.sidebar {
+  width: 240px;
+  flex: 0 0 240px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 30px;
+  margin: 20px;
+  align-self: stretch;
+  overflow-y: auto;
+}
+
+.sidebar h5{
+    color: gray;
+}
+
+
+
+.logo {
+    font-weight: 700;
+    margin-left: 30px;
+    font-size: 35px;
+}
+
+
+.logo span {
+    color: #3d7aff;
+}
+
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.menu a{
+    color: rgba(83, 79, 79, 0.904);
+    border-bottom: 1px solid rgba(71, 70, 70, 0.199);
+}
+.menu a:hover{
+    background-color: #3d7aff;
+    color: #fff;
+    transition: 1s ;
+    transform: scale(1.1);
+}
+.menu i{
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+
+.menu-item {
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+}
+.second-menu{
+    margin-top: 50px;
+    padding-top: 40px;
+}
+
+
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    background: #fff;
+    margin: 20px 20px 20px 0;
+    border-radius: 30px;
+    padding: 30px;
+}
+.segundo-cont{
+    display: flex;
+    justify-content: end;
+}
+.btn-filter {
+    padding: 8px 16px;
+    background-color: #f8f9fa; 
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    color: #495057;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 30px;
+}
+
+
+.btn-filter:hover {
+    background-color: #e9ecef;
+    border-color: #ced4da;
+    color: #212529;
+}
+
+
+
+.principio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.principio p{
+    font-size: 20px;
+}
+.principio h4{
+    font-size: 50px;
+}
+.principio button{
+    font-size: 30px;
+    border-radius: 19px;
+}
+/* Fondo según prioridad */
+.tarea-card.prio-alta{
+  border-left: 6px solid #e53935;
+  border-right: 6px solid #e53935;
+}
+
+.tarea-card.prio-media{
+  border-left: 6px solid #fbc02d;
+  border-right: 6px solid #fbc02d;
+}
+
+.tarea-card.prio-baja{
+  border-left: 6px solid #43a047;
+  border-right: 6px solid #43a047;
+}
+body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .status-incomplete {
+            background-color: #e8e0ff;
+            color: #9f94c9;
+        }
+
+        .status-ongoing {
+            background-color: #ffe8e0;
+            color: #ff6b3d;
+        }
+
+        .status-completed {
+            background-color: #d4f4dd;
+            color: #36a564;
+        }
+
+        .status-count {
+            background-color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .task-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgb(0, 0, 0);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .task-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .task-category {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .category-college {
+            color: #00a143;
+        }
+
+        .category-freelance {
+            color: #ff6b3d;
+        }
+
+        .category-copywriting {
+            color: #8e86aa;
+        }
+
+        .task-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #595f64;
+            margin-bottom: 10px;
+        }
+
+        .task-description {
+            font-size: 13px;
+            color: #7f8c8d;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .task-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .task-date {
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            color: #95a5a6;
+        }
+
+        .task-date i {
+            margin-right: 6px;
+        }
+
+        .card-menu {
+            color: #bdc3c7;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .card-menu:hover {
+            color: #7f8c8d;
+        }
+
+        .Alta{
+            font-size: 11px;
+            margin-top: 7.5px;
+            color: rgb(133, 133, 133);
+        }
+.tarea-card { position: relative; }
+
+.tarea-card .chk{
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 5;
+}
+.oculto { display: none; }
+
+.eliminado{
+  background: #161616 !important;
+  color: #ffffff !important;
+  opacity: .85;
+}
+
+
+
+
+.oculto { display: none; }
+
+

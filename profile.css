@@ -1,0 +1,198 @@
+/* =========================
+   PROFILE (scoped) - Bootstrap modal
+   Todo limitado a #modalPerfil para no romper el index
+   ========================= */
+
+/* VARIABLES (solo dentro del modal) */
+#modalPerfil {
+  --glass-bg: rgba(255, 255, 255, 0.12);
+  --glass-border: rgba(255, 255, 255, 0.25);
+  --glass-shadow: rgba(0, 0, 0, 0.4);
+  --text-main: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.7);
+}
+
+/* Quitar el body global que tenías (NO usar body {...} en este archivo) */
+
+/* Fondo y padding del modal (Bootstrap usa .modal-content/.modal-body) */
+#modalPerfil .modal-content {
+  background: transparent;
+  border: 0;
+}
+
+#modalPerfil .modal-body {
+  background: linear-gradient(135deg, rgb(80, 79, 79), rgb(55, 55, 55));
+  padding: 24px;
+  color: var(--text-main);
+}
+
+/* Opcional: si usas modal-header de Bootstrap */
+#modalPerfil .modal-header {
+  border-bottom: 0;
+  background: transparent;
+  color: var(--text-main);
+}
+
+/* Botón cerrar de Bootstrap (btn-close) para que se vea en fondos oscuros */
+#modalPerfil .btn-close {
+  filter: invert(1) grayscale(100%);
+  opacity: 0.9;
+}
+
+/* CONTENEDOR PRINCIPAL PERFIL */
+#modalPerfil .perfil {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border-radius: 28px;
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    0 20px 40px var(--glass-shadow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+  max-width: 900px;
+  padding: 60px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 90px;
+  color: var(--text-main);
+  margin: 0; /* evita márgenes raros dentro del modal */
+}
+
+/* AVATAR */
+#modalPerfil .avatar__label img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--glass-bg);
+  border: 2px solid var(--glass-border);
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.4),
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* ICONO EDITAR */
+#modalPerfil .avatar__edit {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  color: white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+/* HEADER */
+#modalPerfil .perfil__header h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+#modalPerfil .perfil__descripcion {
+  color: var(--text-muted);
+  max-width: 520px;
+  line-height: 1.6;
+}
+
+/* CARDS */
+#modalPerfil .perfil__card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  padding: 22px;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#modalPerfil .perfil__card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+#modalPerfil .perfil__card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+}
+
+#modalPerfil .perfil__card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* Editable */
+#modalPerfil .perfil__descripcion[contenteditable="true"] {
+  cursor: text;
+  outline: none;
+  border-radius: 12px;
+  padding: 8px 10px;
+  transition: background 0.3s ease;
+}
+
+#modalPerfil .perfil__descripcion[contenteditable="true"]:focus {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+#modalPerfil .guardar-bio {
+  width: fit-content;
+  margin-top: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+#modalPerfil .perfil__contenido {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+#modalPerfil .card__title[contenteditable],
+#modalPerfil .card__text[contenteditable] {
+  outline: none;
+  cursor: text;
+  border-radius: 10px;
+  padding: 4px 6px;
+}
+
+#modalPerfil .card__title[contenteditable]:focus,
+#modalPerfil .card__text[contenteditable]:focus {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+#modalPerfil .guardar-card {
+  margin-top: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  #modalPerfil .perfil {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 28px;
+    gap: 24px;
+  }
+
+  #modalPerfil .perfil__descripcion {
+    margin: 0 auto;
+  }
+}
+
+/* (Opcional) Backdrop de Bootstrap: si quieres más oscuro.
+   Ojo: esto afecta todos los modales si no se puede “scopar” fácil,
+   porque .modal-backdrop se crea fuera del #modalPerfil. */
+.modal-backdrop.show {
+  opacity: 0.75;
+}

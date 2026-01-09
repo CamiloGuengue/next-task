@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         splashScreen.addEventListener('transitionend', function() {
             
-            window.location.href = './next-task-feature-sergio/index.html';
+            window.location.href = 'indexHome.html';
         }, { once: true }); 
     });
 });

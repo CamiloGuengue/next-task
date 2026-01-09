@@ -1,0 +1,78 @@
+#contenedor{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 12px;
+  border: 2px solid #ccc;
+  min-height: 150px;
+}
+
+.cuadrado{
+  width: 220px;
+  height: 160px;
+  padding: 10px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background: #dc3545;
+  color: white;
+  user-select: none;
+}
+
+.oculto {
+  display: none !important;
+}
+
+.cuadrado {
+  position: relative;
+  /* tus estilos: width/height/background/etc */
+}
+
+.cuadrado .chk {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+}
+.eliminado {
+  background: #bdbdbd; /* o el gris que quieras */
+  opacity: 0.8;
+}
+/* Aplica el mismo look a los 2 contenedores */
+#contenedorEliminados {
+  width: 100%;
+  min-height: 220px;      /* ajusta al alto de tu contenedor de arriba */ /* [web:209] */
+  border: 2px solid #333;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.cuadrado{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cuad-fecha{
+  font-size: 12px;
+  opacity: 0.8;
+}
+.cuad-id{
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.cuad-desc,
+.cuad-prioridad,
+.cuad-fecha{
+  font-size: 12px;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+
+
+

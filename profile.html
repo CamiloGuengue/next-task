@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/monday-1.svg" type="image/svg+xml">
+    <title>Profile</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div class="modal" id="modalPerfil">
+    <div class="modal__overlay"></div>
+
+    <div class="modal__content">
+    <button class="modal__close" onclick="cerrarPerfil()">✕</button>
+
+    <section class="perfil">
+        <div class="perfil__avatar">
+            <label for="fotoPerfil" class="avatar__label">
+                <img id="preview" src="avatar.png" alt="Foto de perfil">
+                <span class="avatar__edit">✎</span>
+            </label>
+
+            <input
+                type="file"
+                id="fotoPerfil"
+                accept="image/*"
+                hidden>
+        </div>
+        <div class="perfil__contenido">
+            <header class="perfil__header">
+                <h2 id="nombreUsuario">Nombre del Usuario</h2>
+                <p
+                    class="perfil__descripcion"
+                    id="bioUsuario"
+                    contenteditable="true"
+                    spellcheck="false">
+                    Escribe tu biografía aquí...
+                </p>
+                
+                <button class="guardar-bio" onclick="guardarBio()">
+                    Guardar
+                </button>
+            </header>
+            
+            <div class="perfil__info">
+                <div class="perfil__card" data-card="card1">
+                <h3
+                    contenteditable="true"
+                    spellcheck="false"
+                    class="card__title">
+                    Título
+                </h3>
+                
+                <p
+                    contenteditable="true"
+                    spellcheck="false"
+                    class="card__text">
+                    Información o detalle relacionado.
+                </p>
+                
+                <button class="guardar-card" onclick="guardarCard('card1')">
+                    Guardar
+                </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    </section>
+  </div>
+</div>
+
+<button onclick="abrirPerfil()">Abrir perfil</button>
+    <script src="cambiar_profile.js" defer></script>
+</body>
+</html>

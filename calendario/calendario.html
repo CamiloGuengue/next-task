@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/monday-1.svg" type="image/svg+xml">
+    <title>Calendari</title>
+    <link rel="stylesheet" href="calendario.css"> 
+</head>
+<body>
+<button onclick="abrirCalendario()">Calendario</button>
+
+<!-- MODAL PERFIL -->
+<div class="modal" id="modalPerfil">
+  <div class="modal__overlay" onclick="cerrarPerfil()"></div>
+  <div class="modal__content">
+    <button class="modal__close" onclick="cerrarPerfil()">✕</button>
+
+    <section class="perfil">
+      <div class="perfil__avatar">
+        <label class="avatar__label">
+          <img id="preview" src="avatar.png">
+          <span class="avatar__edit">✎</span>
+          <input type="file" id="fotoPerfil" hidden>
+        </label>
+      </div>
+
+      <div class="perfil__contenido">
+        <h2 id="nombreUsuario">Usuario</h2>
+
+        <p id="bioUsuario" class="perfil__descripcion" contenteditable="true">
+          Escribe tu biografía
+        </p>
+        <button onclick="guardarBio()">Guardar bio</button>
+
+        <div class="perfil__info">
+          <div class="perfil__card" data-card="card1">
+            <h3 contenteditable="true" class="card__title">Título</h3>
+            <p contenteditable="true" class="card__text">Texto</p>
+            <button onclick="guardarCard('card1')">Guardar</button>
+          </div>
+
+          <div class="perfil__card" data-card="card2">
+            <h3 contenteditable="true" class="card__title">Título</h3>
+            <p contenteditable="true" class="card__text">Texto</p>
+            <button onclick="guardarCard('card2')">Guardar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- MODAL CALENDARIO -->
+<div class="modal" id="modalCalendario">
+  <div class="modal__overlay" onclick="cerrarCalendario()"></div>
+  <div class="modal__content small">
+    <button class="modal__close" onclick="cerrarCalendario()">✕</button>
+
+    <section class="calendario">
+      <header>
+        <button onclick="cambiarMes(-1)">‹</button>
+        <h3 id="mesActual"></h3>
+        <button onclick="cambiarMes(1)">›</button>
+      </header>
+      <div id="calendario" class="grid"></div>
+    </section>
+  </div>
+</div>
+
+ <script src="calendario.js" defer></script>
+</body>
+</html>

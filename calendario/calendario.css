@@ -1,0 +1,75 @@
+body {
+  background: radial-gradient(circle at top, #222, #000);
+  color: white;
+  font-family: system-ui;
+  padding: 40px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(156, 156, 156, 0.7);
+  backdrop-filter: blur(10px);
+}
+
+.modal__content {
+  position: relative;
+  z-index: 1;
+  background: rgba(255,255,255,.12);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  border: 1px solid rgba(255,255,255,.3);
+  padding: 30px;
+  max-width: 900px;
+  width: 90%;
+}
+
+.modal__content.small {
+  max-width: 600px;
+}
+
+.modal__close {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+}
+/* CALENDARIO */
+.calendario header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7,1fr);
+  gap: 8px;
+}
+
+.dia {
+  background: rgba(255,255,255,.15);
+  border-radius: 12px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.evento {
+  font-size: .75rem;
+  margin-top: 4px;
+}

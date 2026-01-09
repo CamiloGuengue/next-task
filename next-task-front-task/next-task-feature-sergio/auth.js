@@ -138,7 +138,7 @@ if (loginForm) {
             localStorage.setItem('taskflow-current-user', JSON.stringify(user));
             
             // Redirect to main app
-            window.location.href = 'indexCards.html';  //aca se cambia la pagina despues de iniciar sesion 
+            window.location.href = 'indexTask.html';  //aca se cambia la pagina despues de iniciar sesion 
             
         } else {
             // LOGIN FAILED - Invalid credentials

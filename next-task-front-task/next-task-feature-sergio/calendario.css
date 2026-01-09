@@ -1,0 +1,68 @@
+/* =========================
+   CALENDARIO - Bootstrap modal (scoped)
+   No tocar body / button / .modal global
+   ========================= */
+
+#modalCalendario .modal-content {
+  background: rgba(255,255,255,.10);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 25px;
+  border: 1px solid rgba(255,255,255,.25);
+}
+
+#modalCalendario .modal-header {
+  border-bottom: 1px solid rgba(255,255,255,.15);
+  color: #fff;
+}
+
+#modalCalendario .modal-body {
+  color: #fff;
+}
+
+/* Botón cerrar (para que se vea en fondo oscuro) */
+#modalCalendario .btn-close {
+  filter: invert(1) grayscale(100%);
+  opacity: 0.9;
+}
+
+/* Fondo de backdrop (ojo: es global porque bootstrap lo crea fuera del modal) */
+.modal-backdrop.show {
+  opacity: 0.7;
+}
+
+/* ===== Calendario ===== */
+#modalCalendario .calendario header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+#modalCalendario .grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+/* “Tarjeta” del día */
+#modalCalendario .dia {
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 12px;
+  padding: 10px;
+  cursor: pointer;
+  min-height: 64px;
+}
+
+/* Hover bonito */
+#modalCalendario .dia:hover {
+  background: rgba(255,255,255,.18);
+}
+
+/* Texto del evento */
+#modalCalendario .evento {
+  font-size: .75rem;
+  margin-top: 6px;
+  color: rgba(255,255,255,.8);
+}

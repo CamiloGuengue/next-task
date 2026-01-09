@@ -12,6 +12,24 @@
 </head>
 <body>
     <div class="container">
+        <div class="container">
+    <!-- Botones de filtro -->
+    <div class="btn-group mb-4 d-flex justify-content-center flex-wrap" role="group">
+        <button class="btn btn-outline-primary active" onclick="filtrarCartas('todas')">
+            <i class="bi bi-grid-3x3-gap"></i> Todas
+        </button>
+        <button class="btn btn-outline-danger" onclick="filtrarCartas('incompleto')">
+            <i class="bi bi-circle"></i> Incompletas
+        </button>
+        <button class="btn btn-outline-warning" onclick="filtrarCartas('progreso')">
+            <i class="bi bi-arrow-repeat"></i> En Progreso
+        </button>
+        <button class="btn btn-outline-success" onclick="filtrarCartas('completado')">
+            <i class="bi bi-check-circle"></i> Completadas
+        </button>
+    </div>
+
+    <div class="row">
         <div class="row">
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="status-badge status-incomplete">

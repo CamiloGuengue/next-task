@@ -190,6 +190,23 @@ height: 100vh;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
 }
+/* Solo cuando el tema esté en dark */
+html[data-bs-theme="dark"] body{
+  background: #111;
+  color: #eee;
+}
+
+html[data-bs-theme="dark"] .sidebar,
+html[data-bs-theme="dark"] .navbar{
+  background: #1b1b1b;
+}
+html[data-bs-theme="dark"] .main-content{
+  background-color: #0b0f14 !important; /* muy oscuro */
+  color: #e9ecef;                      /* texto claro */
+}
+
+
+
 
 .oculto { display: none; }
 

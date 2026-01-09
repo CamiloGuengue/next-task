@@ -353,6 +353,25 @@ body {
   color: #ffffff !important;
   opacity: .85;
 }
+/* Fondo general del contenedor de tareas */
+html[data-bs-theme="dark"] #contenedor{
+  background: transparent; /* o #0f1115 si quieres un panel */
+}
+
+/* Tus tarjetas (ajusta el selector a tu clase real: .tarea-card / .task-card) */
+html[data-bs-theme="dark"] .tarea-card,
+html[data-bs-theme="dark"] .task-card{
+  background-color: #1e2229;
+  color: #e9ecef;
+  border: 1px solid #343a40;
+}
+html[data-bs-theme="dark"] .tarea-card.eliminado,
+html[data-bs-theme="dark"] .task-card.eliminado{
+  background-color: #ffffff !important;
+  color: #050505 !important;
+  border-color: #495057 !important;
+}
+
 
 
 

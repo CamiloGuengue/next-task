@@ -188,6 +188,21 @@ btnEliminar?.addEventListener("click", () => {
     chk.checked = false; // opcional: lo desmarca
   });
 });
+const btnTema = document.getElementById("btnTema");
+
+function setTema(theme) {
+  document.documentElement.setAttribute("data-bs-theme", theme);
+  localStorage.setItem("theme", theme);
+}
+
+const guardado = localStorage.getItem("theme");
+setTema(guardado || "light");
+
+btnTema?.addEventListener("click", () => {
+  const actual = document.documentElement.getAttribute("data-bs-theme") || "light";
+  setTema(actual === "dark" ? "light" : "dark");
+});
+
 
 
 

@@ -291,14 +291,14 @@ body {
         }
 
         .task-title {
-            font-size: 18px;
+            font-size: 25px;
             font-weight: 600;
             color: #595f64;
             margin-bottom: 10px;
         }
 
         .task-description {
-            font-size: 13px;
+            font-size: 15px;
             color: #7f8c8d;
             line-height: 1.6;
             margin-bottom: 15px;

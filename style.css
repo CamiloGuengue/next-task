@@ -76,23 +76,22 @@
 
 
 
+
 .project-item .link {
     display: flex;
     flex-direction: column; 
-    gap: 10px;             
+    gap: 8px;               
     align-items: flex-end;  
     justify-content: center;
 }
 
 
 .project-item .link a {
-    width: 130px; 
-    text-align: center;
+    width: 140px;          
     display: flex;
     justify-content: space-between; 
-    margin-left: 0 !important; 
+    text-align: center;
 }
-
 
 
 

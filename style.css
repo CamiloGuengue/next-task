@@ -78,21 +78,105 @@
 
 
 
+/* --- TUS ESTILOS DE CONTENEDORES (Mantenidos igual) --- */
+#contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px;
+    border: 2px solid #ccc;
+    min-height: 150px;
+}
+
+.cuadrado {
+    width: 220px;
+    height: 160px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #dc3545;
+    color: white;
+    user-select: none;
+    position: relative;
+}
+
+.oculto {
+    display: none !important;
+}
+
+.cuadrado .chk {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+}
+
+.eliminado {
+    background: #bdbdbd;
+    opacity: 0.8;
+}
+
+#contenedorEliminados {
+    width: 100%;
+    min-height: 220px;
+    border: 2px solid #333;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.cuad-fecha {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.cuad-id {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.cuad-desc,
+.cuad-prioridad,
+.cuad-fecha {
+    font-size: 12px;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+
+
 .project-item .link {
     display: flex;
     flex-direction: column; 
-    gap: 10px;              
+    gap: 10px;             
     align-items: flex-end; 
     justify-content: center;
 }
 
 
 .project-item .link a {
-    width: 130px; 
-    text-align: center;
+  
+    width: 140px;
     display: flex;
-    justify-content: space-between; 
-    margin-left: 0 !important; 
+    justify-content: space-between;
+    align-items: center;
+
+  
+    padding: 8px 16px;       
+    border: 1px solid #fff;  /
+    border-radius: 50px;     
+    color: #fff;            
+    text-decoration: none;   
+    background-color: transparent;
+    transition: all 0.3s ease;
 }
 
+
+.project-item .link a:hover {
+    background-color: #fff;  
+    color: #000;             
+    transform: translateY(-2px);
+}
 

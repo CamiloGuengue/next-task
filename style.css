@@ -78,7 +78,7 @@
 
 
 
-/* --- TUS ESTILOS DE CONTENEDORES (Mantenidos igual) --- */
+
 #contenedor {
     display: flex;
     flex-wrap: wrap;
@@ -147,36 +147,5 @@
 
 
 
-.project-item .link {
-    display: flex;
-    flex-direction: column; 
-    gap: 10px;             
-    align-items: flex-end; 
-    justify-content: center;
-}
 
-
-.project-item .link a {
-  
-    width: 140px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-  
-    padding: 8px 16px;       
-    border: 1px solid #fff;  /
-    border-radius: 50px;     
-    color: #fff;            
-    text-decoration: none;   
-    background-color: transparent;
-    transition: all 0.3s ease;
-}
-
-
-.project-item .link a:hover {
-    background-color: #fff;  
-    color: #000;             
-    transform: translateY(-2px);
-}
 

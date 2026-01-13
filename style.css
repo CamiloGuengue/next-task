@@ -28,7 +28,7 @@
 
 .cuadrado {
   position: relative;
-  /* tus estilos: width/height/background/etc */
+
 }
 
 .cuadrado .chk {
@@ -37,13 +37,13 @@
   right: 6px;
 }
 .eliminado {
-  background: #bdbdbd; /* o el gris que quieras */
+  background: #bdbdbd; 
   opacity: 0.8;
 }
-/* Aplica el mismo look a los 2 contenedores */
+
 #contenedorEliminados {
   width: 100%;
-  min-height: 220px;      /* ajusta al alto de tu contenedor de arriba */ /* [web:209] */
+  min-height: 220px;      
   border: 2px solid #333;
   padding: 10px;
   display: flex;
